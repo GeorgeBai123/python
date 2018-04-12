@@ -8,11 +8,11 @@ class MyThread(threading.Thread):
         threading.Thread.__init__(self)
 
     def run(self):
-        print('ok')
+        print('ok\n')
         time.sleep(2)
-        print('end')
+        print('end again')
 
 
 t1 = MyThread()  # 创建线程对象
 t1.start()  # 激活线程对象
-print('end again')  # 建议使用直接创建的方式
+print('end')  # 建议使用直接创建的方式

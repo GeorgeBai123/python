@@ -2,26 +2,25 @@
 import threading
 import time
 
-def sub():
-
+def add():
     global num
-    lock.acquire()#获取锁
+    lock.acquire()
     temp=num
-    time.sleep(0.001)
-
-    num=temp-1
-    lock.release()#释放锁
+    # time.sleep(0.001)
+    time.sleep(0.1)
+    num=temp+1
+    lock.release()
     time.sleep(2)
-num=100
-
-
+    
+num=0
 l=[]
 lock=threading.Lock()
+
 for i in range(100):
-    t=threading.Thread(target=sub,args=())
+    t=threading.Thread(target=add,args=())
     t.start()
     l.append(t)
+
 for i in l:
     i.join()
-
 print(num)

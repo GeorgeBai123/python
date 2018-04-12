@@ -3,17 +3,17 @@ import threading
 import time
 
 def sub():
-
     global num
     temp=num
-    # time.sleep(0.0001)
-    time.sleep(0.1)
+    time.sleep(0.0001)
+    # time.sleep(0.1)
     num=temp-1
     time.sleep(2)
 num=100
 
 
 l=[]
+s=time.time()
 for i in range(100):
     t=threading.Thread(target=sub,args=())
     t.start()
@@ -21,6 +21,7 @@ for i in range(100):
 for i in l:
     i.join()
 
+print(time.time() - s)
 print(num)
 
 # 首次定义一个全局变量num=100,然后开辟了100个子线程，但是Python的那把GIL锁

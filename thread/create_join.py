@@ -17,10 +17,10 @@ def bar(n):
 
 
 s = time.time()
-t1 = threading.Thread(target=foo, args=(2,))
+t1 = threading.Thread(target=foo, args=(1,))
 t1.start()  # 把子进程运行起来
 
-t2 = threading.Thread(target=bar, args=(5,))
+t2 = threading.Thread(target=bar, args=(2,))
 t2.start()
 
 t1.join()  # 只是会阻挡主线程运行，跟t2没关系
